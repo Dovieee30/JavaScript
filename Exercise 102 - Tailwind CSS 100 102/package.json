@@ -1,0 +1,23 @@
+{
+  "name": "exercise-102---tailwind-css-100-102",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:css": "postcss ./src/input.css -o ./dist/output.css --env production",
+    "build:css:dev": "postcss ./src/input.css -o ./dist/output.css",
+    "dev": "postcss ./src/input.css -o ./dist/output.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.0",
+    "autoprefixer": "^10.5.0",
+    "postcss": "^8.5.15",
+    "postcss-cli": "^11.0.1",
+    "tailwindcss": "^4.3.0"
+  }
+}
