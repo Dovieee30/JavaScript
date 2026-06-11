@@ -1,10 +1,6 @@
 # JavaScript Learning Workspace
 
-This workspace contains a personal learning environment for web development with a focus on JavaScript. It is organized as a series of practice projects and exercises that support the course journey from beginner fundamentals to practical web applications.
-
-## About
-
-I am currently progressing through a web development course designed to build foundational skills in HTML, CSS, and JavaScript. As a beginner, I am using this workspace to complete guided lessons, experiment with code, and reinforce concepts through hands-on practice.
+This workspace is a personal learning environment for web development, centered on JavaScript and organized as a series of beginner-friendly practice projects and exercises that support my course journey from foundational HTML, CSS, and JavaScript skills to practical web applications through guided, hands-on practice.
 
 ## What’s included
 
@@ -21,6 +17,6 @@ I am currently progressing through a web development course designed to build fo
 - Gain experience with backend development using Node.js and Express
 - Build confidence through practical, incremental learning tasks
 
-## Notes
+## Note:
 
 This workspace is a work in progress, intended to track learning and improvement over time. New exercises and course projects will be added as I continue the training.
