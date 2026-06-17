@@ -1,3 +1,4 @@
+
 import { useState, useEffect, useRef } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
@@ -6,21 +7,33 @@ import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
-  const a = useRef(0)
+  const btnref = useRef(0)
 
-// Use Case 1 of useRef Hook in React
+
+  // Use Case 2 of useRef Hook in React
 
 
   useEffect(() => {
-    a.current = a.current + 1
-    console.log(`rerendering....... The value of a is ${a.current}`)
-
-  });
+    console.log(`First Rendering.....`)
+    btnref.current.style.backgroundColor = "red"
+  }, []);
 
   return (
     <>
       <section id="center">
         <div className="hero">
+
+          {/* button  */}
+
+          <button ref={btnref} onClick={() => setCount((count) + 1)}>
+            Click me  , Count is : {count}
+          </button>
+
+
+          <button onClick={() => {btnref.current.style.display = "none"}}>
+            Change Me
+          </button>
+
           <img src={heroImg} className="base" width="170" height="179" alt="" />
           <img src={reactLogo} className="framework" alt="React logo" />
           <img src={viteLogo} className="vite" alt="Vite logo" />

@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useRef } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
@@ -7,15 +6,16 @@ import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
-  const ref = useRef(0)
+  const a = useRef(0)
 
-
-// Use Case 2 of useRef Hook in React
+// Use Case 1 of useRef Hook in React
 
 
   useEffect(() => {
-    console.log(`First Rendering.....`)
-  }, []);
+    a.current = a.current + 1
+    console.log(`rerendering....... The value of a is ${a.current}`)
+
+  });
 
   return (
     <>
