@@ -7,11 +7,33 @@ import './App.css'
 function App() {
   const [count, setCount] = useState(0)
   const [showbtn, setshowbtn] = useState(false)
+  const [todos, setTodos] = useState([
+    { 
+      title: "Todo 1", 
+      desc: "This is the first todo" 
+    },
+
+    { 
+      title: "Todo 2", 
+      desc: "This is the second todo" 
+    },
+
+    { 
+      title: "Todo 3", 
+      desc: "This is the third todo" 
+    }
+
+  ])
 
 
-  const Todo = () => {
-    return (<>
-      <div className="todo">I am todo</div></>)
+ 
+  const Todo = ({ todo }) => {
+    return (
+      <>
+        <div className="todo">{todo.title}</div>
+        <div className="todo">{todo.desc}</div>
+      </>
+    )
   }
 
   return (
@@ -19,7 +41,11 @@ function App() {
 
       <section id="center">
 
-        <Todo></Todo>
+        {/* <Todo></Todo> */}
+
+        {todos.map((item, idx) => (
+          <Todo key={idx} todo={item} />
+        ))}
 
           {showbtn ? <button>showbtn is true</button> : "showbtn is false"}
 
