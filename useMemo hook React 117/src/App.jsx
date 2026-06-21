@@ -23,7 +23,7 @@ function App() {
 
   const magical = useMemo(() => numbers.find(item=>item.isMagical===true),[numbers])
 
-  return (
+  return(
     <>
     <span>Magical Number is: {magical.index}</span>
       <section id="center">
