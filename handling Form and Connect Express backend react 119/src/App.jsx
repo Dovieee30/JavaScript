@@ -23,16 +23,24 @@ function App() {
   }
 
   const onSubmit= async (data) => {
-    await delay(3) //delay of 4 seconds after clicking submit button
-    console.log(data)
+    // await delay(3) //delay of 4 seconds after clicking submit button
+    let r = await fetch("http://localhost:5000/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    })
+    let res = await r.text()
+    console.log(data, res)
 
-    if(data.username !== "Debashree"){
-      setError("myform", {message: "Credentials are invalid please enter correct username"})
-    }
+    // if(data.username !== "Debashree"){
+    //   setError("myform", {message: "Credentials are invalid please enter correct username"})
+    // }
     
-    if(data.username === "Debss"){
-      setError("blocked", {message: "Sorry this user is blocked"})
-    }
+    // if(data.username === "Debss"){
+    //   setError("blocked", {message: "Sorry this user is blocked"})
+    // }
 
   }
 
