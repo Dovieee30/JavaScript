@@ -1,10 +1,9 @@
-import { discoverValidationDepths } from "next/dist/server/app-render/instant-validation/instant-validation";
-import Image from "next/image";
+
 
 export default function Home() {
   return (
-   <div>
-    I am Home
+    <div className="containe my-10">
+      <img className="mx-auto" src="https://gratisography.com/wp-content/uploads/2025/05/gratisography-moon-robot-800x525.jpg" alt="" />
    </div>
   );
 }
