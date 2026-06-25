@@ -1,15 +1,15 @@
-import Image from "next/image";
+"use client"
+
+import {submitAction} from "@/actions/form"
+import { useRef } from "react";
 
 export default function Home() {
-
-  const submitAction = (e) => {
-    "use server"
-  }
+  let ref = useRef()
 
   return (
-   <div  className="w-50vw mx-auto">
+   <div className="w-50vw mx-auto">
 
-    <form action={submitAction}>
+    <form ref={ref} action = {(e)=> {submitAction(e); ref.current.reset()}}>
 
       <div>
         <label htmlFor="name">Name</label>
