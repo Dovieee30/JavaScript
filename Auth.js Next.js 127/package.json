@@ -1,0 +1,13 @@
+{
+  "name": "authjs-nextjs-root",
+  "private": true,
+  "scripts": {
+    "dev": "npm --prefix auth run dev",
+    "build": "npm --prefix auth run build",
+    "start": "npm --prefix auth run start",
+    "lint": "npm --prefix auth run lint"
+  },
+  "dependencies": {
+    "next-auth": "^4.24.14"
+  }
+}
