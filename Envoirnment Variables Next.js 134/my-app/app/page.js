@@ -15,6 +15,7 @@ export default function Home() {
      <br />
      The Secret is {process.env.SECRET}
      <br />
+     The Color  is {process.env.NEXT_PUBLIC_COLOR}
    </div>
   );
 }
