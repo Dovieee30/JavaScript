@@ -14,6 +14,7 @@ export default function Home() {
      The id is {process.env.NEXT_PUBLIC_ID}
      <br />
      The Secret is {process.env.SECRET}
+     <br />
    </div>
   );
 }
