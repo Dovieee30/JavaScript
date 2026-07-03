@@ -5,7 +5,7 @@ const navbar = () => {
   return (
     <nav className='h-16 bg-pink-500 flex items-center justify-between px-10 text-white'>
 
-        <div className="logo font-bold text-xl">
+        <div className="logo font-bold text-2xl">
             QuirkLink
         </div>
 
