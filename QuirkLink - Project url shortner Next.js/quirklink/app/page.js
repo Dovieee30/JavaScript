@@ -21,15 +21,12 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="py-20 p-30">
-        <div className="h-[460px] overflow-hidden rounded-xl">
-          <Image
-            alt="Vector illustration"
-            src="/vector.jpg/369728-PBA6Z8-97.jpg"
-            width={500}
-            height={500}
+      <div className="py-20 p-8">
+        <div className="h-[460px] w-full overflow-hidden rounded-xl border border-slate-200 shadow-md bg-white">
+          <img
+            alt="Web design concept illustration"
+            src="/web-design-concept.jpg"
             className="h-full w-full object-cover"
-            style={{ objectPosition: '50% 98%', transform: 'scale(1.16)' }}
           />
         </div>
       </div>
