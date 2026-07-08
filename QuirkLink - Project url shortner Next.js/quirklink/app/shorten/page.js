@@ -76,9 +76,9 @@ fetch("api/generate", requestOptions)
   <div>
     <span className='font-bold text-lg text-gray-800'>Your short URL Link: </span>
 
-    <br />
+    <br /> 
 
-    <a href={generated} target="_blank" rel="noreferrer">
+    <a className=' hover:underline' href={generated} target="_blank" rel="noreferrer">
       {generated}
     </a>
   </div>
