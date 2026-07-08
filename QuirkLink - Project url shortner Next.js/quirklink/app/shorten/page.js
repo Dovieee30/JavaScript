@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 const Shorten = () => {
     const [url, seturl] = useState("")
     const [shorturl, setShortUrl] = useState("")
-    const [generated, setGenerated] = useState(false)
+    const [generated, setGenerated] = useState("")
 
    
     const generate = () => {
@@ -26,7 +26,9 @@ const requestOptions = {
 fetch("api/generate", requestOptions)
   .then((response) => response.json())
   .then((result) => {
-    
+    setGenerated(`${process.env.NEXT_PUBLIC_HOST}/${shorturl}`)
+    seturl("")
+    setShortUrl("")
     console.log(result)
     alert(result.message)
 
@@ -62,9 +64,25 @@ fetch("api/generate", requestOptions)
           <button onClick={generate} className='bg-pink-500 hover:bg-pink-200 text-white font-bold py-2 px-4 rounded-md'>
             Generate
           </button>
+  </div>
 
+{/*   
+          {
+          generated && <> <span>Your short URL Link:</span> <code><link target="_blank" href={generated}>{generated}</link>
+          </code></>
+          } */}
 
-        </div>
+{generated && (
+  <div>
+    <span className='font-bold text-lg text-gray-800'>Your short URL Link: </span>
+
+    <br />
+
+    <a href={generated} target="_blank" rel="noreferrer">
+      {generated}
+    </a>
+  </div>
+)}
       </div>
 
       
