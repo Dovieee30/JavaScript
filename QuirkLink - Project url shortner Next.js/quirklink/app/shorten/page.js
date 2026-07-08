@@ -5,50 +5,39 @@ const Shorten = () => {
     const [url, seturl] = useState("")
     const [shorturl, setShortUrl] = useState("")
     const [generated, setGenerated] = useState(false)
-    const [generatedLink, setGeneratedLink] = useState('')
-    const [isLoading, setIsLoading] = useState(false)
-    const [statusMessage, setStatusMessage] = useState(null)
 
-    const generate = async () => {
-      if (!url || !shorturl) {
-        setStatusMessage({ type: 'error', text: 'Please enter both URL and short text.' })
-        return
-      }
+   
+    const generate = () => {
+      const myHeaders = new Headers();
+myHeaders.append("Content-Type", "application/json");
 
-      setIsLoading(true)
-      setStatusMessage(null)
-      try {
-        const response = await fetch('/api/generate', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ url, shorturl }),
-        })
+const raw = JSON.stringify({
+  "url": url,
+  "shorturl": shorturl
+});
 
-        const result = await response.json()
+const requestOptions = {
+  method: "POST",
+  headers: myHeaders,
+  body: raw,
+  redirect: "follow"
+};
 
-        console.log(result)
+fetch("api/generate", requestOptions)
+  .then((response) => response.json())
+  .then((result) => {
+    
+    console.log(result)
+    alert(result.message)
 
-        if (!response.ok) {
-          setStatusMessage({ type: 'error', text: result.message || result.error || 'Failed to generate URL' })
-          return
-        }
-
-        const host = window.location.origin
-        setGeneratedLink(`${host}/${result.shorturl}`)
-        setGenerated(true)
-        setStatusMessage(null)
-      } catch (error) {
-        console.error(error)
-        setStatusMessage({ type: 'error', text: error.message || 'Unable to generate URL' })
-      } finally {
-        setIsLoading(false)
-      }
+  })
+  .catch((error) => console.error(error));
     }
 
+
+    
   return (
-    <>
+
       <div className='mx-auto max-w-lg bg-pink-300 p-10 rounded-lg flex flex-col gap-4 mt-10'>
         <h1 className='font-bold text-2xl text-center text-white'>Generate your short URLs</h1>
 
@@ -66,38 +55,19 @@ const Shorten = () => {
             value={shorturl}
             className='p-2.5 rounded-md bg-green-200 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500'
             placeholder="Enter your preferred short text for URL"
-            onChange={(e) => setShortUrl(e.target.value)}
+            onChange={(e) => setShortUrl(e.target.value)} 
           />
+
+
+          <button onClick={generate} className='bg-pink-500 hover:bg-pink-200 text-white font-bold py-2 px-4 rounded-md'>
+            Generate
+          </button>
+
+
         </div>
       </div>
 
-      <div className='mx-auto max-w-lg bg-green-50 border border-green-200 p-4 rounded-md flex flex-col gap-4 mt-4'>
-        <button type="button" onClick={generate} disabled={isLoading} className='bg-pink-500 disabled:opacity-50 hover:bg-pink-200 text-white font-bold py-2 px-4 rounded-md'>
-          {isLoading ? 'Generating...' : 'Generate'}
-        </button>
-
-        {statusMessage && (
-          <div className={`p-3 rounded-md ${statusMessage.type === 'error' ? 'bg-red-100 text-red-800' : 'bg-green-200 text-green-800'}`}>
-            {statusMessage.text}
-          </div>
-        )}
-
-        {generatedLink && (
-          <div className='bg-green-50 border border-green-200 p-4 rounded-md'>
-            <p className='text-sm text-slate-600 font-semibold'>Your QuirkLink</p>
-            <a
-              href={generatedLink}
-              target="_blank"
-              rel="noreferrer"
-              className='text-lg text-pink-600 break-all underline hover:text-pink-800'
-            >
-              {generatedLink}
-            </a>
-            <p className='mt-2 text-green-700 font-medium'>The shortened URL is ready to use.</p>
-          </div>
-        )}
-      </div>
-    </>
+      
   )
 }
 
