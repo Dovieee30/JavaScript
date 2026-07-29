@@ -4,13 +4,26 @@ const cart = ["shoes", "shirt", "hat"];
 //create a order and give an orderID for Payment 
 //ISSUE: Inversion of control - gave the control of a program to other part of code(control of payment to create order)
    
-createOrder(cart, function(){
+createOrder(cart, function(orderID){
     proceedToPayment(orderID);
 }); 
 
+//Callback hell - Pyramid Of DOM 
+//Code starts growing horizonatly & hard to maintain.
+
+createOrder(cart, function(orderID){
+    proceedToPayment(orderID, function(paymentInfo){
+        ordersummary(paymentInfo, function(){
+            updatebalance();
+        });
+    });
+}); 
+
+
 
 //SOLUTION: Promises
-//Promise is a empty object {} which has a data that is returned from the createOrder(cart) api this api is a async operation. 
+//Promise is an empty object {} which has a data, that is returned from the createOrder(cart) api , this api is a async operation.
+//Promise is an object represents eventual completion or failure of an asynchronous Operartion.
 
 const promise = createOrder(cart);
 
