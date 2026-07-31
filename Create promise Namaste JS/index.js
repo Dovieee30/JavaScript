@@ -1,12 +1,26 @@
 const cart = ["shoes", "pants", "kurta"]
 
-const promise = createOrder(cart); //returns orderId
-console.log(promise);
+//Chain of Promises
+createOrder(cart) //returns orderId
+// console.log(promise);
 
-promise.then(function(orderId){
-    console.log(orderId);
-    // proccedPayment(orderId);
-});
+    .then(function(orderId){
+        console.log(orderId);
+        return orderId;
+    })
+    
+    .then(function(orderId){
+        return proceedToPayment(orderId);
+    })
+
+    .then(function(){
+        console.log(paymentInfo)
+    })
+
+//to handle rejection or errors we use catch 
+    .catch(function (err) {
+        console.log(err.message);
+    });
 
 
 //How to create promise? that is how to createOrder(cart) function that returns a promise.
@@ -35,6 +49,11 @@ function createOrder(cart){
     return pr;
 }
 
+function proceedToPayment(orderId){
+    return new Promise(function(resolve, reject){
+        resolve("Payment Succesfull");
+    })
+}
 //we have to write a function of validateCart to use it previously.
 function validateCart(cart){
     return true;
