@@ -6,13 +6,13 @@ const p1 = new Promise((resolve, reject) => {
 })
 
 const p2 = new Promise((resolve, reject) => {
-  setTimeout(() => resolve('P2 success'), 1000);
-//   setTimeout(() => reject('P2 failed'), 1000);
+//   setTimeout(() => resolve('P2 success'), 1000);
+  setTimeout(() => reject('P2 failed'), 1000);
 })
 
 const p3 = new Promise((resolve, reject) => {
-//   setTimeout(() => resolve('P3 success'), 2000);
-  setTimeout(() => reject('P3 failed'), 2000);
+  setTimeout(() => resolve('P3 success'), 2000);
+//   setTimeout(() => reject('P3 failed'), 2000);
 })
 
 
@@ -25,7 +25,7 @@ const p3 = new Promise((resolve, reject) => {
 //     })
 
 
-// //Promise.allSettled : wait for all promises to settle, regardless of whether they resolve or reject / success or failed and return an array of objects (status: , value: ) format after 3s.
+// Promise.allSettled : wait for all promises to settle, regardless of whether they resolve or reject / success or failure and return an array of objects (status: , value: ) format after 3s.
 // Promise.allSettled([p1, p2, p3])
 //     .then(res => {
 //         console.log(res)
@@ -35,6 +35,7 @@ const p3 = new Promise((resolve, reject) => {
 //     })
 
 
+// Promise.race : just like a race only wait for the first promise to settle, regardless of whether it resolves or rejects / success or failure  / fullfilled or rejected and return the value after 1s , output gives only 1st promise as a result.
 // Promise.race([p1, p2, p3])
 //     .then(res => {
 //         console.log(res)
