@@ -24,13 +24,16 @@ const p3 = new Promise((resolve, reject) => {
 //         console.error(err);
 //     })
 
-Promise.allSettled([p1, p2, p3])
-    .then(res => {
-        console.log(res)
-    })
-    .catch(err => {
-        console.error(err);
-    })
+
+// //Promise.allSettled : wait for all promises to settle, regardless of whether they resolve or reject / success or failed and return an array of objects (status: , value: ) format after 3s.
+// Promise.allSettled([p1, p2, p3])
+//     .then(res => {
+//         console.log(res)
+//     })
+//     .catch(err => {
+//         console.error(err);
+//     })
+
 
 // Promise.race([p1, p2, p3])
 //     .then(res => {
@@ -39,6 +42,7 @@ Promise.allSettled([p1, p2, p3])
 //     .catch(err => {
 //         console.error(err);
 //     })
+
 
 // Promise.any([p1, p2, p3])
 //     .then(res => {
