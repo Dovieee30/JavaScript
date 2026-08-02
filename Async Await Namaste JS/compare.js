@@ -25,7 +25,7 @@ const p2 = new Promise((resolve, reject) => {
 
 
 
-//after async and await
+//after async and await 
 
 //Js engine was waiting for the promise to resolve.
 //Js engine seems to be waiting but it is not waiting, it just suspend that function handlePromise(), from callstack until the promises p1 and p2 are resolved. 
@@ -45,3 +45,5 @@ async function handlePromise() {
 
 }
 handlePromise();
+
+// async and await are syntactic sugar for promises. It makes the code look synchronous but still runs asynchronously.

@@ -3,27 +3,26 @@
 
 const API_URL = "https://api.github.com/users/dovieee30";
 
-// async function getUser() {
+async function getUser() {
 
-//     try{
-//         const data = await fetch(API_URL);
-//         const jsonValue = await data.json();
+    try{
+        const data = await fetch(API_URL);
+        const jsonValue = await data.json();
 
-//         console.log(jsonValue);
-//     }
-//     catch(err) {
-//         console.log(err);
-//     }
+        console.log(jsonValue);
+    }
+    catch(err) {
+        console.log(err);
+    }
 
-//     //General
-//     // fetch().then(res => res.json()).then(res => console.log(res));
+    //General
+    // fetch().then(res => res.json()).then(res => console.log(res));
 
-// }
-// getUser();
+}
+getUser();
 
 
 /* 
-
     fetch() => Response.json() => jsonValue (result)
 
     fetch() : It is a promise and gives you a response object when the promise is resolved which takes some time.
