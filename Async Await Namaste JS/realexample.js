@@ -1,24 +1,28 @@
 // all Free API's link : https://api.github.com/
-//i have used :  "user_url": "https://api.github.com/users/{user}"
+// i have used :  "user_url": "https://api.github.com/users/{user}"
 
 const API_URL = "https://api.github.com/users/dovieee30";
 
-async function getUser() {
+// async function getUser() {
 
-    const data = await fetch(API_URL);
-    const jsonValue = await data.json();
-    
-    console.log(jsonValue);
+//     try{
+//         const data = await fetch(API_URL);
+//         const jsonValue = await data.json();
 
-    //General
-    // fetch().then(res => res.json()).then(res => console.log(res));
+//         console.log(jsonValue);
+//     }
+//     catch(err) {
+//         console.log(err);
+//     }
 
-}
-getUser();
+//     //General
+//     // fetch().then(res => res.json()).then(res => console.log(res));
+
+// }
+// getUser();
 
 
 /* 
-
 
     fetch() => Response.json() => jsonValue (result)
 
@@ -28,3 +32,20 @@ getUser();
     response.json() : is also a promise that is resolved and then gives result.
 
  */
+
+/* Handle Error : using Try Catch block OR .catch() 
+   Try : executes the code block
+   Catch : executes the code block if there is an error in try block.
+*/
+
+
+//OR
+
+async function getUser() {
+
+    const data = await fetch(API_URL);
+    const jsonValue = await data.json();
+
+    console.log(jsonValue);
+}
+getUser().catch((err) => console.log(err));
