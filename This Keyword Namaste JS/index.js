@@ -13,14 +13,21 @@ console.log(this);
 
 function x() {
     /* The value depends on Strict , non-strict mode.
-       strict Mode : value Undefined
+       if its in strict Mode value of console.log(this) : Undefined
        non-strict Mode : value window */
     console.log(this);
 }
 x();
+window.x(); 
 
 /* WHY?? : The value depends on Strict , non-strict mode. 
-   => "this substitution" : If the value of this keyword is undefined or null,
+   => "this substitution" means : If the value of this keyword is undefined or null,
        then this keyword will be replaced by global object,
        only in non-strict mode.
 */
+
+//this keyword value depends on how the function is called.
+//if calling without any reference x(); shows undefined
+//with reference window.x(); shows window object.
+
+
