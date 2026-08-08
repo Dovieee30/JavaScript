@@ -31,7 +31,7 @@ printName.call(student, "Sketching", " Mumbai ");
 // .apply() method - pass as an 2nd arguement in form of combined list.
 printName.apply(student, ["Sketching", " Mumbai "]);
 
-// .bind() method - gives the copy of Method and invoke it later
+// .bind() method - creates new method - printMyName, gives the copy of Method and invoke it later
 let printMyName = printName.bind(student2, "Dancing", " Navi Mumbai ")
 console.log(printMyName);
 printMyName();
