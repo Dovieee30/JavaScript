@@ -1,23 +1,31 @@
-// this inside a object's method
+//3. this inside a object's method
 
 //what is method?
 //function inside an object is called method.
-//here, printName: function is a method of an object obj- Student.
+//here, printName: function is a method of an object - Student.
 const student = {
     name: "Debss" ,
-    printName: function () {
-        console.log(this); // this represents the object obj
-        console.log(this.name); // this.name represents the property name of object obj
-    }
+    roll: 26,
 }
-student.printName();
+
+//method 
+const printName = function(hobb, state) {
+    console.log(this.name + " " + this.roll + " Hobby : " + hobb + state); 
+}
 
 const student2 = {
-    name: "Debashree"
+    name: "Debashree",
+    roll: 66,
+
 };
 //sharing or reusing method printName of student object to student2 object
 // student2.printName(); // this will throw an error because printName is not a method of student2 object
 
-//How to share?? : Overridding - .call() method
+//How to share?? :Method Overridding.
 // 3 types: call, apply, bind
-student.printName.call(student2); // value of "this" becomes student2
+
+// .call() method
+printName.call(student, "Sketching", " Mumbai ");
+printName.call(student2); // value of "this" becomes student2
+
+// .apply() method
