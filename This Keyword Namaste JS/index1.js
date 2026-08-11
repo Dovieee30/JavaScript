@@ -21,6 +21,7 @@ const student2 = {
 //sharing or reusing method printName of student object to student2 object
 // student2.printName(); // this will throw an error because printName is not a method of student2 object
 
+
 //How to share?? :Method Overridding.
 // 3 types: call, apply, bind
 
