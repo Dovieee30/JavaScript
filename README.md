@@ -1,4 +1,4 @@
-# JavaScript Learning Workspace
+# My Personal JavaScript Learning Workspace
 
 This workspace is a personal learning environment for web development, centered on JavaScript and organized as a series of beginner-friendly practice projects and exercises that support my course journey from foundational HTML, CSS, and JavaScript skills to practical web applications through guided, hands-on practice.
 
